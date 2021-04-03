@@ -2,9 +2,11 @@
 
 Let's start with the riddle, who is shown in this photo? 🙂
 
+<p align="center">
 
 [![Ryan dahl](./img/ryan-dahl.jpeg)](https://en.wikipedia.org/wiki/Ryan_Dahl)
 
+</p>
 Most likely, you have worked with his product 😉
 
 <details>
