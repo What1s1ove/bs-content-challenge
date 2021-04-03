@@ -3,10 +3,11 @@
 Let's start with the riddle, who is shown in this photo? 🙂
 
 <p align="center">
-
-[![Ryan dahl](./img/ryan-dahl.jpeg)](https://en.wikipedia.org/wiki/Ryan_Dahl)
-
+  <a href="https://en.wikipedia.org/wiki/Ryan_Dahl" rel="nofollow">
+  <img src="./img/ryan-dahl.jpeg" alt="Ryan dahl" />
+  </a>
 </p>
+
 Most likely, you have worked with his product 😉
 
 <details>
