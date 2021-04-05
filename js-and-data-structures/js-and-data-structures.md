@@ -4,7 +4,7 @@ Let's start with a quote that once changed my life. I am sure that this quote an
 
 > Bad programmers worry about the code. Good programmers worry about data structures and their relationships. &copy; [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds)
 
-We will talk about data structures, but it is impossible to talk about data structures without mentioning algorithms. So let's talk about both things.
+We will talk about data structures, but it is impossible to talk about them without mentioning algorithms. So let's talk about both things.
 
 Algorithm is the steps we need to take to solve a problem. Data structures are organized data with efficient and convenient access to them.
 
