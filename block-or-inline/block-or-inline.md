@@ -8,7 +8,7 @@ This image contains about 50 screenshots from random articles and courses, where
 
 **It is wrong.**
 
-HTML tags are divided into **7** types. In this article, we will learn about each of them and and how to use them correctly.
+HTML tags are divided into **7** types. In this article, we will learn about each of them and how to use them correctly.
 
 Program for today:
 - 7 types of HTML Element
