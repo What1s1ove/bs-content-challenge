@@ -37,7 +37,7 @@ type User = {
 }
 ```
 
-*Do not worry if you are not familiar with [TypeScript](https://www.typescriptlang.org/). The example of a type is given so that you understand the approximate structure of the user.*
+Do not worry if you are not familiar with [TypeScript](https://www.typescriptlang.org/). The example of a type is given so that you understand the approximate structure of the user.
 
 ## The Task
 
