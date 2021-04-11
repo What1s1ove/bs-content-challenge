@@ -6,4 +6,4 @@
 
 - ### [Deno — JS&TS runtime](./deno-js-and-ts-runtime/deno-js-and-ts-runtime.md)
 
-- ### [JS and data structures](./js-and-data-structures/js-and-data-structures)
+- ### [JS and data structures](./js-and-everyday-data-structures/js-and-everyday-data-structures)
