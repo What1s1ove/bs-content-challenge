@@ -268,7 +268,7 @@ But it looks very ugly. We could replace this with a `switch` statement, or a he
 
 There are some conventions how to build this structure:
 
-- must have a name by these patterns — `<someValue>To<someValue>` or `<someValue>Map` (the first option is used more often).
+- Map must have a name by these patterns — `<someValue>To<someValue>` or `<someValue>Map` (the first option is used more often).
 
 <details>
   <summary>Examples</summary>
