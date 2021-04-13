@@ -494,7 +494,7 @@ With [const assertions](https://www.typescriptlang.org/docs/handbook/release-not
 
 Moreover, `enum` is [always a reserved word](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#future_reserved_keywords) in JavaScript, which means that maybe someday we will have a construct that the language itself will offer us.
 
-Also, none of the programs that compress the JS code cannot compress TS `enum`s. Which cannot be said about the objects that pure Java script offers us.
+Also, none of the programs that compress the JS code cannot compress TS `enum`s. The same cannot be said about the objects that pure JavaScript offers us.
 
 ## Enum TC39 proposals
 
