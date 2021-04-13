@@ -514,4 +514,4 @@ Data structures are awesome! They help us to solve problems in a beautiful and c
 
 Most of the things have already been done for us 🙂
 
-Do not forget to put the constants of the same type into `Enum`s, then Map them into the format you need, and enjoy the gracefully completed tasks 🔥
+Do not forget to put the constants of the same type into `Enum`s, then map them into the format you need, and enjoy the gracefully completed tasks 🔥
