@@ -80,15 +80,17 @@ HTML Element content types:
 - [Embedded content](https://html.spec.whatwg.org/multipage/dom.html#embedded-content-category) — images, video, audio and etc;
 - [Interactive content](https://html.spec.whatwg.org/multipage/dom.html#interactive-content-2) — what the user is interacting with.
 
-<figure align="center">
+<p align="center">
   <img src="./img/htm-content-type.jpg" alt="html content types">
-  <figcaption>HTML Element content types</figcaption>
-</figure>
+  <br>
+  <span>HTML Element content types</span>
+</p>
 
-<figure align="center">
+<p align="center">
   <img src="./img/htm-element-content-type.jpg" alt="html content types">
-  <figcaption>HTML Element content types with tags</figcaption>
-</figure>
+  <br>
+  <span>HTML Element content types with tags</span>
+</p>
 
 *When you try to nest one tag in another incorrectly, browser, **without asking**, starts fixing errors **at its discretion***
 
