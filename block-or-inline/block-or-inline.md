@@ -1,7 +1,7 @@
 # Block or inl`<i>`ne ?
 
 <p align="center">
-  <img src="./img/lie.jpg" alt="Random courses titles">
+  <img src="./img/lie.jpg" width="750" height="350" alt="Random courses titles">
 </p>
 
 This image contains about 50 screenshots from random articles and courses, where the authors state that tags in HTML are divided into two types - block and inline.
@@ -105,11 +105,11 @@ Open the [documentation](https://html.spec.whatwg.org/multipage/semantics.html#s
 <details>
   <summary>Spoiler</summary>
 
+  **Yes, you can!**
+
   [The `li` element](https://html.spec.whatwg.org/multipage/grouping-content.html#the-li-element) content model — `flow content`.
 
   [The `p` element](https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element) categories — `flow content`, `palpable content`.
-
-  **Yes, you can!**
 
 </details>
 
@@ -122,11 +122,11 @@ Open the [documentation](https://html.spec.whatwg.org/multipage/semantics.html#s
 <details>
   <summary>Spoiler</summary>
 
+  **Yes, you can!**
+
   [The `header` element](https://html.spec.whatwg.org/multipage/sections.html#the-header-element) content model — `flow content`, but with no `header` or `footer` element descendants.
 
   [The `section` element](https://html.spec.whatwg.org/multipage/sections.html#the-section-element) categories — `flow content`, `sectioning content`, `palpable content`.
-
-  **Yes, you can!**
 
 </details>
 
@@ -139,11 +139,12 @@ Open the [documentation](https://html.spec.whatwg.org/multipage/semantics.html#s
 <details>
   <summary>Spoiler</summary>
 
+  **No, you can't!**
+
   [The `p` element](https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element) content model — `phrasing content`.
 
   [The `div` element](https://html.spec.whatwg.org/multipage/grouping-content.html#the-div-element) categories — `flow content`, `palpable content`.
 
-  **No, you can't!**
 </details>
 
 

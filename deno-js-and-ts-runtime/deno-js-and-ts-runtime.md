@@ -4,7 +4,7 @@ Let's start with the riddle, who is shown in this photo? 🙂
 
 <p align="center">
   <a href="https://en.wikipedia.org/wiki/Ryan_Dahl" rel="nofollow">
-  <img src="./img/ryan-dahl.jpeg" alt="Ryan dahl">
+    <img src="./img/ryan-dahl.jpeg" width="482"  height=" 307" alt="Ryan dahl">
   </a>
 </p>
 
