@@ -7,3 +7,5 @@
 - ### [Deno — JS&TS runtime](./deno-js-and-ts-runtime/deno-js-and-ts-runtime.md)
 
 - ### [JS and everyday data structures](./js-and-everyday-data-structures/js-and-everyday-data-structures.md)
+
+- ### [Github actions: basic concepts with code linting](./github-actions-basic-concepts-with-code-linting/github-actions-basic-concepts-with-code-linting.md)
