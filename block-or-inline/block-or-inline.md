@@ -4,7 +4,7 @@
   <img src="./img/lie.jpg" width="750" height="350" alt="Random courses titles">
 </p>
 
-This image contains about 50 screenshots from random articles and courses, where the authors state that tags in HTML are divided into two types - block and inline.
+This image contains about 50 screenshots from random articles and courses, where the authors state that tags in HTML are divided into two types — block and inline.
 
 **It is wrong.**
 
