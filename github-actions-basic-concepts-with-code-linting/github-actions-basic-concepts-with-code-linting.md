@@ -123,7 +123,7 @@ In the github interface, the runs will look like this:
 <p align="center">
   <img src="./img/inside-each-run.jpg" alt="inside each run">
   <br>
-  <span>Inside each run</span>
+  <span>Inside Each Run</span>
 </p>
 
 ## Branch protection
