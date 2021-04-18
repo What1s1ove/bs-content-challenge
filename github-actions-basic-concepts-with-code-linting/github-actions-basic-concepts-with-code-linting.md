@@ -1,12 +1,5 @@
 # Github actions: basic concepts with code linting
 
-Program for today:
-- Github Actions in general
-- Simple project init
-- Branch protection
-- Bonus. Linting other files
-- Conclusions
-
 ## Github Actions in general
 
 **`Github Actions`** are commands for github to run some code every time an *event* occurs (Push, Merge, PR and etc.). The code runs on github virtual machines.
