@@ -613,6 +613,6 @@ But now, Node has a worthy competitor, Deno — a **secure** runtime for **JavaS
 
 Competition is usually always good!
 
-This article did not cover all topics such as [code linting](https://deno.land/manual@v1.9.0/tools/linter), [code formatting](https://deno.land/manual/tools/formatter), [code testing](https://deno.land/manual@v1.9.0/testing), and etc. But you know, *most of this Deno has out of the box*.
+This article did not cover all topics such as [code linting](https://deno.land/manual@v1.9.0/tools/linter), [code formatting](https://deno.land/manual/tools/formatter), [code testing](https://deno.land/manual@v1.9.0/testing), and etc. By the way, *most of this Deno has out of the box* 😉
 
 There is no need to run and rewrite everything, but at least everyone should take a look and try Deno. People who have already worked with Node shouldn't take a lot of effort to make friends with this beautiful technology.
