@@ -4,7 +4,7 @@
 
 - ### [Block or inl`<i>`ne?](./block-or-inline/block-or-inline.md)
 
-- ### [Deno — JS&TS runtime](./deno-js-and-ts-runtime/deno-js-and-ts-runtime.md)
+- ### [Business comes and says: We need to rewrite everything from Node to Deno...](./business-comes-and-says-we-need-to-rewrite-everything-from-node-to-deno/business-comes-and-says-we-need-to-rewrite-everything-from-node-to-deno.md)
 
 - ### [JS and everyday data structures](./js-and-everyday-data-structures/js-and-everyday-data-structures.md)
 
