@@ -4,22 +4,15 @@
   <img src="./img/lie.jpg" width="750" height="350" alt="Random courses titles">
 </p>
 
-This image contains about 50 screenshots from random articles and courses, where the authors state that tags in HTML are divided into two types — block and inline.
+This image contains around 50 screenshots from random articles and courses, where the authors state that tags in HTML are divided into two types — block and inline.
 
-**It is wrong.**
+**This is wrong.**
 
-HTML tags are divided into **7** types. In this article, we will learn about them and how to use them correctly.
-
-Program for today:
-- The Problem
-- 7 types of HTML Element
-- Let's play. Can `<x>` be nested in `<y>`?
-- Can I Include
-- Conclusions
+HTML tags are divided into **7** types. In this article we will learn about them and how to use them correctly.
 
 ## The Problem
 
-Let's imagine that we have a task where we need to make the markup of the form. Something like this:
+Let's imagine that we have a task where we need to make a markup of a form. Something like this:
 
 ```jsx
 // src/components/sign-up/components/register-form/register-form.jsx
@@ -58,11 +51,9 @@ But when we open the browser we see this:
   <img src="./img/invalid-markup.jpg" alt="Invalid markup">
 </p>
 
-Hmm, the custom select component outside of `p` element? An extra `p` appeared? What is going on...
+Hmm, the custom select component outside of the `p` element? An extra `p` appeared? What is going on...
 
 This is how the browser behaves when we try to nest one element incorrectly within another.
-
-**This is not because we are trying to nest a block element within a block element!**
 
 ## 7 types of HTML Element
 
@@ -92,7 +83,7 @@ HTML Element content types:
   <span>HTML Element content types with tags</span>
 </p>
 
-*When you try to nest one tag in another incorrectly, browser, **without asking**, starts fixing errors **at its discretion***
+*When you try to nest one tag in another incorrectly, browser starts fixing errors **at its discretion without asking**.*
 
 ## Let's play. Can `<x>` be nested in `<y>`?
 
@@ -153,9 +144,9 @@ Open the [documentation](https://html.spec.whatwg.org/multipage/semantics.html#s
 <small>Ps. after this example, you should understand why the markup broke in our task above 🙂 </small>
 ## Can I Include
 
-Of course you shouldn't memorize all types of content, but sometimes you should look there when you are not sure or something is broken.
+Of course you don’t have to memorize all types of content but sometimes you should look there when you are not sure or something is broken.
 
-By the analogue [Can I Use](https://caniuse.com/), the [Can I Include](https://caninclude.glitch.me/) tool has been developed that can help us with this.
+By analogy with [Can I Use](https://caniuse.com/), the [Can I Include](https://caninclude.glitch.me/) tool has been developed that can help us with this.
 
 <p align="center">
   <img src="./img/can-i-include.jpg" alt="Can I include">
@@ -165,7 +156,6 @@ By the analogue [Can I Use](https://caniuse.com/), the [Can I Include](https://c
 
 The main thing you have to remember is that *there are **no** block or inline elements in HTML*. There are **7** types of content that expect a certain nesting into each other.
 
-
-You *don't need to memorize them all*, but sometimes when you have doubts, or something is broken, you can look at the [documentation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content) or use this [excellent tool](https://caninclude.glitch.me/) to check yourself.
+You *don't have to memorize them all* but sometimes when you have doubts or something is broken you can look at the [documentation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content) or use this [excellent tool](https://caninclude.glitch.me/) to check yourself.
 
 When we learn a new foreign language, sometimes we look into the dictionary to check something. The same happens with any other language (markup, programming and etc.) — sometimes you need to look into the dictionary (documentation) to understand why it works this way.
