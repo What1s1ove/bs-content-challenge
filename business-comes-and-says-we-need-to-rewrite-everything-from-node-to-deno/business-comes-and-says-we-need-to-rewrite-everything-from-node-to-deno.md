@@ -206,7 +206,7 @@ Before we start, let's take a look at the definition of these two technologies t
 
 Both definitions contain `runtime` and `JavaScript`. Does it mean that we can run the same code on both platforms? Not at all.
 
-Let's try to run the code that we wrote on NodeJS base using Deno (if we don't have Deno installed yet, you can find how to do it [here](https://deno.land/#installation)):
+Let's try to run the code that we wrote on NodeJS base using Deno (if you don't have Deno installed yet, you can find how to do it [here](https://deno.land/#installation)):
 
 ```
 > deno run src/server.ts
