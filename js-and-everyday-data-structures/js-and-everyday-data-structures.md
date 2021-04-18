@@ -6,7 +6,7 @@ Let's start with a quote that once changed my life. I am sure that this quote an
 
 We will talk about data structures, but it is impossible to talk about them without mentioning algorithms. So let's talk about both things.
 
-Algorithm is the steps we need to take to solve a problem. Data structures are organized data with efficient and convenient access to them.
+Algorithms are the steps we need to take to solve a problem. Data structures are organized data with efficient and convenient access to them.
 
 Out of the box JS has two data structures — `Array` and `Hash Table` (`Object`, `Set`, `Map`). Not much, but based on these two, it is possible to build almost any other structures (`Queue`, `Enum`, `Linked List`, `Graphs` and etc.).
 
@@ -14,17 +14,9 @@ Let's get started. We will start with the `Linked List`.
 
 **`Linked List`** — the data structure that consists of a group of nodes which... wait, wait, wait. I am sure `Linked List` is a great structure that solves the problems, but today I want to talk about `simpler`, `useful` and `everyday` structures that will make your life easier. Namely about `Enum` and `Map`.
 
-We will talk about these two data structures, look at the conventions that JS community has about them: how to call them, how to compose them and how they help us solve our everyday problems.
+We will talk about these two data structures, look at the conventions that JS community has about them: how to call them, how to compose them and how they help us to solve our everyday problems.
 
 (Also, If you want to know more about the other data structures that I mentioned above (hope so) but which we will not talk about today, you can take a look at [this](https://medium.com/free-code-camp/10-common-data-structures-explained-with-videos-exercises-aaff6c06fb2b) article. I am sure that the guys from [freeCodeCamp](https://www.freecodecamp.org/) explain these structures better than me 🙂)
-
-Program for today:
- - CONSTANTs
- - Enum
- - Map
- - Enum (TS)
- - Enum TC39 proposals
- - Conclusions
 
 ## Let's get started! 🔥
 
@@ -60,15 +52,15 @@ It might look like this:
 
 That's it. The task is done. Buuut... we can do it *better*.
 
-Let's imagine that in our code, there will appear, or there are already places where we check something by the user's gender. We duplicate the code. It is not good. Also, if we all the time will use *just a string*, sooner or later, we will make a mistake. In fact, such errors are not very easy to find.
+Let's imagine that in our code there will be or there are already places where we check something by the user's gender. We duplicate the code. It is not good. Also if we use *just a string* all the time, sooner or later, we will make a mistake. In fact, such errors are not very easy to find.
 
 Let's solve this problem too. We will protect ourselves from this. We will use a *single source of truth* — **`CONSTANT`**'s.
 
 ## CONSTANT
 
-`CONSTANT`s are used to store data that is known *before the start* of the program and that *should not be changed* during the execution of the program. It is important that the constant is not the `const` keyword for variables. The constant can be declared with any keyword for variables (`var`, `let`, `const`), but `const` is commonly used.
+`CONSTANT`s are used to describe data that is known *before the start* of the program and that *should not be changed* during the execution of the program. It is important that the constant is not the `const` keyword for variables. The constant can be declared with any keyword for variables (`var`, `let`, `const`), but `const` is commonly used.
 
-Constants are used not only in JavaScript, and there are some conventions for them:
+Constants are used not only in JavaScript and there are some conventions for them:
 
 - Constant must be declared at the top of the program/module (after imports, if any);
 - Constant must have a name in capital letters;
@@ -145,7 +137,7 @@ const FEMALE_GENDER_TYPE = 'female';
 </ul>
 ```
 
-Much better, but we can also improve it.
+Much better, but we can improve it even more.
 
 Have you noticed that we duplicate `GENDER_TYPE` in the name? It is not critical, but annoying 🙃. Also, if we needed some values, we would have to import each constant separately.
 
@@ -153,7 +145,7 @@ It would be cool if there was a data structure that would help us with this as w
 
 ## Enum
 
-`Enum` is a date structure that is used as a set of constants.
+`Enum` is a data structure that is used as a set of constants.
 
 For this structure, JavaScript also has conventions among developers:
 
@@ -230,7 +222,7 @@ const GenderType = {
 
 We could keep using constants, but it is much better and more correct to use structures that are better suited for this.
 
-Also, if we did the task with TypeScript, we could also change a little the type of the user. This is *many times better* than using just strings.
+Also, if we do the task with TypeScript, we can also change a little bit the type of the user. This is *many times better* than using just strings.
 
 ```ts
 type User = {
@@ -260,7 +252,7 @@ Let's now imagine that a business comes to us and says that they want us to add 
 </ul>
 ```
 
-But it looks very ugly. We could replace this with a `switch` statement, or a helper function that does it itself. It would be better, but we can also use special structures for this. We can use a **`Map`** data structure to make the solution more flexible and readable.
+But it looks very ugly. We could replace this with a `switch` statement, or a helper function that does it itself. It is much better, but we can also use special structures for this. We can use a **`Map`** data structure to make the solution more flexible and readable.
 
 ## Map
 
@@ -336,7 +328,7 @@ const genderTypeToEmoji = {
 </ul>
 ```
 
-Have you noticed how we reused all the structures we learned about above? 🙂
+Have you noticed how we reused all the structures we have just learned about? 🙂
 
 Using data structures and their combinations is a very *powerful* tool that is very much *appreciated* among developers.
 
@@ -512,6 +504,6 @@ Do not forget to check the [proposals](https://github.com/tc39/proposals) that m
 
 Data structures are awesome! They help us to solve problems in a beautiful and convenient way. A huge plus is that if you do them according to the conventions that are present in the JavaScript language, most developers will understand many times faster than coming up with something 'new'.
 
-Most of the things have already been done for us 🙂
+Most things are already invented for us 🙂
 
-Do not forget to put the constants of the same type into `Enum`s, then map them into the format you need, and enjoy the gracefully completed tasks 🔥
+Do not forget to put the constants of the same type into `Enum`s, then map them into the format you need, and enjoy the beauty of the data structures. 🔥
