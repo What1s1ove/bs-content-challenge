@@ -20,19 +20,13 @@ Most likely, you have worked with his product 😉
 
 In this article, we will take a look at `Deno` and how it compares to `Node.js` to help understand what they have in common, how they differ and is it real that `Deno` will kill `Node.js`?
 
-## Program for today:
-##  - Things that work differently than in `Node.js`
-## - `Node.js` & `io.js` & `Deno`
-## - Easter eggs
-## - Conclusions
-
  ## Project
 
 Let's imagine a situation: Business comes to us and says us to rewrite the project from [Node](https://nodejs.org) to [Deno](https://deno.land).
 
 But why? Who knows 🙂
 
-For now, let's imagine that there is no other way, and we need to do it. But then what? Do we really have to rewrite all lines of code in the project?
+For now, let's imagine that there is no other way, and we need to do it. But then what? Do we really need to rewrite most of the code in the project?
 
 Let's check this with an example of a small project.
 
@@ -181,7 +175,7 @@ What it can do:
   </html>
   ```
 
-- Has a posts api (wrapper for [jsonplaceholder](https://jsonplaceholder.typicode.com) service).
+- Has a posts api (wrapper for the [jsonplaceholder](https://jsonplaceholder.typicode.com) service).
 
   ```
   > curl "http://localhost:3000/api/v1/posts/1"
@@ -189,7 +183,7 @@ What it can do:
   {"userId":1,"id":1,"title":"sunt aut facere repellat provident occaecati excepturi optio reprehenderit","body":"quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"}
   ```
 
-- Has a books CRUD api (all data is stored in `json` format).
+- Has a books CRUD api (all data is stored in the `json` format).
 
 
   ```
@@ -198,36 +192,40 @@ What it can do:
   {"id":"1","name":"DDD"}
   ```
 
-That's all. Everything works fine!
+That's all. Perfect!
 
 Let's move on to the most interesting part.
 
 ## From Node to Deno
 
-```
-> rm -rf node_modules package-lock.json package.json
-```
+Before we start, let's take a look at the definition of these two technologies that we can find on the technology homepage.
+
+[Node](https://nodejs.org/en) — is a JavaScript runtime.
+
+[Deno](https://deno.land) — is a secure runtime for JavaScript and TypeScript.
+
+Both definitions contain `runtime` and `JavaScript`. Does it mean that we can run the same code on both platforms? Not at all.
+
+Let's try to run the code that we wrote on NodeJS base using Deno (if we don't have Deno installed yet, you can find how to do it [here](https://deno.land/#installation)):
 
 ```
-error: Cannot resolve module "file:///Users/vladislavzubko/Documents/projects/node-deno/src/services/services" from "file:///Users/vladislavzubko/Documents/projects/node-deno/src/server.ts".
-    at file:///Users/vladislavzubko/Documents/projects/node-deno/src/server.ts:8:0
+> deno run src/server.ts
 ```
 
+Aaaand we get an error:
 
 ```
-error: Uncaught PermissionDenied: Requires env access to "PORT", run again with the --allow-env flag
-    SERVER_PORT: Deno.env.get('PORT'),
+error: Cannot resolve module "file:///src/services/services" from "file:///src/server.ts".
+  at file:///src/server.ts:8:0
 ```
 
-```
-error: Uncaught ReferenceError: require is not defined
-const contentType = require('./content-type.enum');
-```
+But interestingly, we did not receive an error saying that we use code TypeScript. This is because Deno supports TypeScript out of the box!
 
-```
-error: Uncaught ReferenceError: module is not defined
-module.exports = {
-```
+If we tried to run code written with TypeScript in NodeJS without using `ts-node` (or any other *additional package*), we would immediately get errors about the unknown syntax.
+
+Okay, let's try to fix the differences between Node and Deno.
+
+First of all, let's install an [official extension](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno) to help us develop on Deno and add this to the editor settings:
 
 ```json
 // .vscode/settings.json
@@ -239,7 +237,15 @@ module.exports = {
 }
 ```
 
-Extension
+Then, let's remove the things that are completely **useless** for Deno that are in NodeJS.
+
+```
+> rm -rf node_modules package-lock.json package.json
+```
+
+Stop what? Where do we store our packages now?
+
+Do not worry, we will store the dependencies *we need* here:
 
 ```ts
 // src/dependencies.ts
@@ -249,6 +255,226 @@ import * as Oak from 'https://deno.land/x/oak/mod.ts';
 
 export { Oak };
 ```
+
+Two questions immediately arise: what is `dependencies.ts` and why do we use a link to import packages?
+
+Let's start at the end. Two reasons that Ryan talked about in his [presentation](https://www.youtube.com/watch?v=M3BM9TB-8yA&t=1369s) and that he tried to fix this in Deno are `node_modules` and `package.json`.
+
+Why:
+
+- `package.json`:
+  - Allow Nod's `require()` to inspect package.json files for "main";
+  - Included NPM in the Node distribution, which much made it the defacto standard;
+  - It's unfortunate that there is centralized (privately controlled even) repository for modules;
+  - Allowing `package.json` gave rise to the concept of a "module" as a directory of files;
+  - This is no a strictly necessary abstraction - and one that doesn't exist on the web;
+  - `package.json` now includes all sorts of unnecessary information. License? Repository? Description? It's boilerplate noise;
+  - If only relative files and URLs were used when importing, the path defines the version. There is no need to list dependencies.
+
+- `node_modules`:
+  - It massively complicates the module resolution algorithm;
+  - vendored-by-default has good intentions, but in practice just using `$NODE_PATH` wouldn't have precluded that;
+  - Deviates greatly from browser semantics;
+  - It's my fault and I'm very sorry;
+  - Unfortunately it's impossible to undo now.
+
+(The reasons are taken from Dahl's presentation). When the program is launched for the first time, modules are downloaded and cached in the system. And when reused, they will be taken from there. While reusing modules, they will be taken from the cache.
+
+Now about `dependencies.ts`. It's just a file that I created to store all third-party project's dependencies (name can be whatever). It is allowed to include third-party modules in any part of the program, but this is not a good practice. It is better to keep all the modules in one place.
+
+Let's try to run the code again. We get the following error:
+
+```
+error: Is a directory (os error 21)
+  at file:///src/server.ts:6:0
+```
+
+On the sixth line we have this:
+
+```ts
+// src/server.ts
+
+import { ENV } from './common/enums';
+
+// src/common/enums/index.ts
+
+export * from './api';
+export * from './app';
+export * from './file';
+export * from './http';
+```
+
+Everything looks fine. What is the problem?
+
+It would seem that we can miss the file name if the file is called `index`.
+
+This is possible, but only in NodeJS. In Deno, we must always explicitly specify the file with its extension.
+
+These are two more reasons Dahl regrets about Node:
+
+- `index.js`:
+  - I thought it was cute, because there was `index.html`;
+  - It needlessly complicated the module loading system;
+  - It became especially unnecessary after require supported `package.json`.
+
+- modules without the extension:
+  - Needlessly less explicit;
+  - Not how browser JavaScript works. You cannot omit the `.js` in a script tag src attribute;
+  - The module loader has to query the file system at multiple locations trying to guess what the user intended.
+
+
+Let's fix this, and a few other errors that we will run into.
+
+1. ### Resole magic names
+    ```ts
+    // src/common/enums/index.ts
+
+    export * from './api/index.ts';
+    export * from './app/index.ts';
+    export * from './file/index.js';
+    export * from './http/index.ts';
+    ```
+
+2. ### Resolve magic variables/functions/modules that are only available in Node
+    ```
+    error: Uncaught ReferenceError: __dirname is not defined
+    app.use(serve(resolve(__dirname, '../public')));
+    ```
+
+    ```
+    error: Uncaught ReferenceError: require is not defined
+    const contentType = require('./content-type.enum');
+    ```
+
+    ```
+    error: Uncaught ReferenceError: module is not defined
+    module.exports = {
+    ```
+3. ### Resolve take variables from env
+    ```diff
+
+    // src/common/enums/app/env.enum.ts
+
+    - const { PORT, PLACEHOLDER_API_URL } = process.env;
+
+    const ENV = {
+      APP: {
+    -    SERVER_PORT: <string>PORT,
+    +    SERVER_PORT: Number(Deno.env.get('PORT')),
+      },
+      API: {
+        V1_PATH: '/api/v1',
+      },
+      API_URL: {
+    -    PLACEHOLDER_API: <string>PLACEHOLDER_API_URL,
+    +    PLACEHOLDER_API: <string>Deno.env.get('PLACEHOLDER_API_URL'),
+      },
+    } as const;
+    ```
+
+4. ### Resolve writeFile/readFile helpers
+    ```diff
+
+    // src/helpers/fs/read-file/read-file.helper.helper.ts
+
+    - import fs from 'fs/promises';
+
+    - const readFile = (path: string): Promise<Buffer> => {
+    -   return fs.readFile(path);
+    + const readFile = (path: string): Promise<string> => {
+    +   return Deno.readTextFile(path);
+    };
+
+    export { readFile };
+
+    // src/helpers/fs/write-file/write-file.helper.helper.ts
+    - import fs from 'fs/promises';
+
+    - const writeFile = (path: string, data: string | Uint8Array): Promise<void> => {
+    -   return fs.writeFile(path, data);
+    + const writeFile = (path: string, data: Uint8Array): Promise<void> => {
+    +   return Deno.writeFile(path, data);
+    };
+
+    export { writeFile };
+    ```
+5. ### Resolve Paths
+    ```diff
+
+    src/repositories/book/books.repository.ts
+
+    ...
+
+    - const booksDataPath = path.resolve(__dirname, './books.json');
+    + const booksDataPath = new URL('./books.json', import.meta.url).pathname;
+
+    class Books implements IRepository<Book> {
+
+      ...
+
+      private _saveBooks(books: Book[]): Promise<void> {
+    -    return writeFile(booksDataPath, JSON.stringify(books));
+    +    return writeFile(
+    +      booksDataPath,
+    +      new TextEncoder().encode(JSON.stringify(books)),
+    +    );
+      }
+    }
+    ```
+
+6. ### [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) out of the box
+    ```diff
+
+    // src/services/http/http.service.ts
+
+    class Http {
+    -  #http: AxiosInstance;
+    -
+    -  constructor() {
+    -    this.#http = axios.create({});
+    -  }
+
+      public load<T = unknown>(
+        url: string,
+    -    options: AxiosRequestConfig = {
+    +    options: RequestInit = {
+          method: HttpMethod.GET,
+        },
+      ): Promise<T> {
+    -    return this.#http
+    -      .request<T>({ url, ...options })
+    -      .then(Http.getData)
+    -      .catch(Http.catchError);
+    +    return fetch(url, options)
+    +      .then(this._checkStatus)
+    +      .then((res) => this._parseJSON<T>(res))
+    +      .catch(this._throwError);
+      }
+
+    -  static getData<T>(response: AxiosResponse<T>): T {
+    -    return response.data;
+    +  private _checkStatus(response: Response): Response | never {
+    +    if (!response.ok) {
+    +      throw new Error(response.statusText);
+    +    }
+    +
+    +    return response;
+      }
+
+    -  static catchError(err: AxiosError<unknown>): never {
+    -    const { response } = err;
+    +  private _parseJSON<T>(response: Response): Promise<T> {
+    +    return response.json();
+      }
+
+    -    throw new Error(response?.statusText);
+    +  private _throwError(err: Error): never {
+    +    throw err;
+      }
+    }
+    ```
+
+Of course, there were more changes, but these are the most interesting things that deserve attention.
 
 ```ts
 // src/server.ts
@@ -287,6 +513,50 @@ app.listen({
 console.log(`Listening to connections on port — ${ENV.APP.SERVER_PORT}`);
 ```
 
+<p align="center">
+  Root file using Deno
+</p>
+
+Almost the same, isn't it? 🙂
+
+### Permissions
+
+Finally, let's run our refactored app!
+
+We are still getting the error:
+
+```
+error: Uncaught PermissionDenied: Requires env access to "PORT", run again with the --allow-env flag
+    SERVER_PORT: Deno.env.get('PORT'),
+```
+
+But this time an error that was not received before.
+
+Another reason, which Ryan regrets is security in NodeJS:
+
+- V8 by itself is a very good security sandbox;
+- Had I put more thought into how that could be maintained for certain applications, Node colud have had some nice security guarantees not available in any other language;
+- Example: Your linter shouldn't get complete access to your computer and network.
+
+Every time we run a program on Deno, we need to specify the appropriate permissions that it will possess.
+
+To run our app we need to use these permissions:
+
+```
+> deno run --allow-env --allow-read --allow-write --allow-net src/server.ts
+```
+
+*By this [link](https://deno.land/manual/getting_started/permissions#permissions-list) you can find a list of all permissions.*
+
+Let's try to run it again:
+
+```
+> deno run --allow-env --allow-read --allow-write --allow-net src/server.ts
+
+Listening to connections on port — 3000
+```
+
+Let's try to call the APIs:
 ```
 > curl "http://localhost:3000/api/v1/posts/1"
 
@@ -298,3 +568,45 @@ console.log(`Listening to connections on port — ${ENV.APP.SERVER_PORT}`);
 
 {"id":"1","name":"DDD"}
 ```
+
+Everything is working! 🔥
+
+But look at the code differences:
+
+<p align="center">
+  <img src="./img/node-to-deno.jpg" alt="Node To Deno">
+</p>
+
+Amazing, isn't it?
+
+*Okay-okay, most of the changes (almost all) are due to dependencies, since now we only have **2** dependencies.*
+
+## Easter eggs
+
+Do you like easter eggs? Hope so 🙂
+
+Let's see something:
+
+```ts
+const checkIsSameStr = (stringA: string, stringB: string): boolean => {
+  return Array.from(stringA.toLowerCase()).every((it) => {
+    return stringB.toLowerCase().includes(it)
+  })
+}
+
+const isEasterEgg = checkIsSameStr('Node', 'Deno'); // true
+
+// Koa - middleware framework for Node
+// Oak - middleware framework for Deno
+const isEasterEgg = checkIsSameStr('Koa', 'Oak'); // true
+```
+
+Not sure if this was done on purpose(hope so), but there is something similar here, isn't it? 😉
+
+*(There are a number of other packages that are named similarly.)*
+
+## Conclusions
+
+Prettier
+
+Testing
