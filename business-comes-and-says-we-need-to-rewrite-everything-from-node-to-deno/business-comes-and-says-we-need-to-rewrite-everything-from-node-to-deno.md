@@ -596,17 +596,23 @@ const checkIsSameStr = (stringA: string, stringB: string): boolean => {
 
 const isEasterEgg = checkIsSameStr('Node', 'Deno'); // true
 
-// Koa - middleware framework for Node
-// Oak - middleware framework for Deno
+// Koa - the middleware framework for Node
+// Oak - the middleware framework for Deno
 const isEasterEgg = checkIsSameStr('Koa', 'Oak'); // true
 ```
 
-Not sure if this was done on purpose(hope so), but there is something similar here, isn't it? 😉
+Not sure if this was done on purpose (hope so), but there is something similar here, isn't it? 😉
 
 *(There are a number of other packages that are named similarly.)*
 
 ## Conclusions
 
-Prettier
+Until recently, Node had almost no competitors ([io.js](https://en.wikipedia.org/wiki/Node.js#History) ?) and was almost the only platform where we could run JavaScript on the server.
 
-Testing
+But now, Node has a worthy competitor, Deno — a **secure** runtime for **JavaScript** and **TypeScript**, who will step on its heels every day.
+
+Competition is usually always good!
+
+This article did not cover all topics such as [code linting](https://deno.land/manual@v1.9.0/tools/linter), [code formatting](https://deno.land/manual/tools/formatter), [code testing](https://deno.land/manual@v1.9.0/testing), and etc. But you know, *most of this Deno has out of the box*.
+
+There is no need to run and rewrite everything, but at least everyone should take a look and try Deno. People who have already worked with Node shouldn't take a lot of effort to make friends with this beautiful technology.
