@@ -4,19 +4,22 @@ Let's start with a quote that once changed my life. I am sure that this quote an
 
 > Bad programmers worry about the code. Good programmers worry about data structures and their relationships. &copy; [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds)
 
-We will talk about data structures, but it is impossible to talk about them without mentioning algorithms. So let's talk about both things.
+We will talk about data structures, but it is impossible to talk about them without mentioning algorithms. So let's talk a little about both things.
 
 Algorithms are the steps we need to take to solve a problem. Data structures are organized data with efficient and convenient access to them.
 
-Out of the box JS has two data structures — `Array` and `Hash Table` (`Object`, `Set`, `Map`). Not much, but based on these two, it is possible to build almost any other structures (`Queue`, `Enum`, `Linked List`, `Graphs` and etc.).
+<p align="center">
+  <i>Programming is always = algorithms ➕ data structures.</i>
+</p>
 
-Let's get started. We will start with the `Linked List`.
+*When solving a problem, it should be borne in mind that choosing the right data structure may be a solution for the problem (no need to write any code)*
 
-**`Linked List`** — the data structure that consists of a group of nodes which... wait, wait, wait. I am sure `Linked List` is a great structure that solves the problems, but today I want to talk about `simpler`, `useful` and `everyday` structures that will make your life easier. Namely about `Enum` and `Map`.
+## Data structures in JS
 
-We will talk about these two data structures, look at the conventions that JS community has about them: how to call them, how to compose them and how they help us to solve our everyday problems.
+JS has two basic data-structures that can be reused in different ways depending on the requirements. Therefore, they support a large number of methods of different structures, which would be separate in other program languages.
 
-(Also, If you want to know more about the other data structures that I mentioned above (hope so) but which we will not talk about today, you can take a look at [this](https://medium.com/free-code-camp/10-common-data-structures-explained-with-videos-exercises-aaff6c06fb2b) article. I am sure that the guys from [freeCodeCamp](https://www.freecodecamp.org/) explain these structures better than me 🙂)
+- Object (Enum, Map, Graph, etc);
+- Array (List, Stack, Queue, etc).
 
 ## Let's get started! 🔥
 
@@ -60,7 +63,7 @@ Let's solve this problem too. We will protect ourselves from this. We will use a
 
 `CONSTANT`s are used to describe data that is known *before the start* of the program and that *should not be changed* during the execution of the program. It is important that the constant is not the `const` keyword for variables. The constant can be declared with any keyword for variables (`var`, `let`, `const`), but `const` is commonly used.
 
-Constants are used not only in JavaScript and there are some conventions for them:
+Constants are a very important and popular approach to organizing program code. And for them there are several conventions among the developers:
 
 - Constant must be declared at the top of the program/module (after imports, if any);
 - Constant must have a name in capital letters;
@@ -145,7 +148,7 @@ It would be cool if there was a data structure that would help us with this as w
 
 ## Enum
 
-`Enum` is a data structure that is used as a set of constants.
+`Enum` (enumeration) — a data structure that is used to enumerate a set of fixed values (set of constants).
 
 For this structure, JavaScript also has conventions among developers:
 
@@ -256,11 +259,15 @@ But it looks very ugly. We could replace this with a `switch` statement, or a he
 
 ## Map
 
-`Map` is a data structure that is used to map some values to others.
+`Map` (dictionary, associative array, map) — a data structure that is used to map one value to another.
 
-There are some conventions how to build this structure:
+JS has a [`new Map` constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) out of the box. The key difference from a common object is the ability to use any data type (even an object) as a key.
 
-- Map must have a name by these patterns — `<someValue>To<someValue>` or `<someValue>Map` (the first option is used more often).
+Usually, using the JS Map constructor is overkill. If you need the functionality that the JS Map provides you need to use it. But usually a common object is used to build this structure.
+
+There are some conventions how to configure this structure:
+
+- Map must have a name by one of these patterns — `<someValue>To<someValue>` or `<someValue>Map` (the first pattern is used more often).
 
 <details>
   <summary>Examples</summary>
@@ -330,7 +337,7 @@ const genderTypeToEmoji = {
 
 Have you noticed how we reused all the structures we have just learned about? 🙂
 
-Using data structures and their combinations is a very *powerful* tool that is very much *appreciated* among developers.
+The choice of suitable data structures saved us from writing additional code. Using data structures and their combinations is a very *powerful* tool that is very much *appreciated* among developers.
 
 Here are some more examples where using data structures helps a lot:
 
@@ -502,7 +509,9 @@ Do not forget to check the [proposals](https://github.com/tc39/proposals) that m
 
 ## Conclusions
 
-Data structures are awesome! They help us to solve problems in a beautiful and convenient way. A huge plus is that if you do them according to the conventions that are present in the JavaScript language, most developers will understand many times faster than coming up with something 'new'.
+Data structures are awesome! They help us to solve tasks in a beautiful and convenient way. With the right data structures, it's easier to build algorithms or not write code at all. The data structure may already be the solution to the task.
+
+A huge plus is that if you do them according to the conventions that are present in the JavaScript language, most developers will understand many times faster than coming up with something 'new'.
 
 Most things are already invented for us 🙂
 
