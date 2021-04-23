@@ -96,9 +96,11 @@ This is how the browser behaves when we try to nest one element incorrectly with
 
 ## 7 types of HTML Element
 
-According to the [documentation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content):
+Each element in HTML falls into zero or more categories that group elements with similar characteristics together, has its own content model and other nuances and features. For example [the p element](https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element):
 
-> Each element in HTML falls into zero or more categories that group elements with similar characteristics together.
+<p align="center">
+  <img src="./img/p-element.jpg" alt="Invalid markup">
+</p>
 
 HTML Element content types:
 
@@ -119,7 +121,7 @@ HTML Element content types:
 <p align="center">
   <img src="./img/htm-element-content-type.jpg" alt="html content types">
   <br>
-  <span>HTML Element content types with tags</span>
+  <span>HTML Element content types with some tags</span>
 </p>
 
 *When you try to nest one tag in another incorrectly, browser starts fixing errors **at its discretion without asking**.*
@@ -179,8 +181,6 @@ Open the [documentation](https://html.spec.whatwg.org/multipage/semantics.html#s
 
 </details>
 
-
-<small>Ps. after this example, you should understand why the markup broke in our task above 🙂 </small>
 ## Can I Include
 
 Of course you don’t have to memorize all types of content but sometimes you should look there when you are not sure or something is broken.
