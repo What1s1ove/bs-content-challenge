@@ -51,7 +51,46 @@ But when we open the browser we see this:
   <img src="./img/invalid-markup.jpg" alt="Invalid markup">
 </p>
 
-Hmm, the custom select component outside of the `p` element? An extra `p` appeared? What is going on...
+Hmm, the custom select component outside of the `p` element? An extra `p` appeared?
+
+One more example:
+
+```jsx
+// src/components/sign-up/components/users/users.jsx
+
+<div className="table-wrapper">
+  <CustomTable>
+    {users.map((user) => (
+      <tr>
+        <td>{user.name}</td>
+        <td>{user.role}</td>
+      </tr>
+    ))}
+  </CustomTable>
+<div>
+```
+
+<details>
+  <summary>CustomTable markup</summary>
+
+  ```jsx
+    // src/components/common/custom-table/custom-table.jsx
+
+    const CustomTable = ({ children }) => (
+      <table className="custom-table">
+        {children}
+      </table>
+    );
+  ```
+</details>
+
+Let's open a browser:
+
+<p align="center">
+  <img src="./img/invalid-table-markup.jpg" alt="Invalid markup">
+</p>
+
+What is going on...
 
 This is how the browser behaves when we try to nest one element incorrectly within another.
 
