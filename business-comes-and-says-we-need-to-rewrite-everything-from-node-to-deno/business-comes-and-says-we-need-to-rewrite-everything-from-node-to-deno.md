@@ -1,4 +1,4 @@
-# Business comes and says: We need to rewrite everything from Node to Deno...
+# Business comes and tells: We need to rewrite everything from Node to Deno...
 
 Let's start with the riddle, who is shown in this photo? 🙂
 
@@ -474,7 +474,7 @@ Let's fix this, and a few other errors that we will run into.
     }
     ```
 
-Of course, there were more changes, but these are the most interesting things that deserve attention.
+Of course there were more changes, but these are the most interesting things that deserve attention.
 
 ```ts
 // src/server.ts
@@ -535,7 +535,7 @@ But this time an error that was not received before.
 Another reason, which Ryan regrets is security in NodeJS:
 
 - V8 by itself is a very good security sandbox;
-- Had I put more thought into how that could be maintained for certain applications, Node colud have had some nice security guarantees not available in any other language;
+- Had I put more thought into how that could be maintained for certain applications, Node could have had some nice security guarantees not available in any other language;
 - Example: Your linter shouldn't get complete access to your computer and network.
 
 Every time we run a program on Deno, we need to specify the appropriate permissions that it will possess.
@@ -546,7 +546,7 @@ To run our app we need to use these permissions:
 > deno run --allow-env --allow-read --allow-write --allow-net src/server.ts
 ```
 
-*By this [link](https://deno.land/manual/getting_started/permissions#permissions-list) you can find a list of all permissions.*
+*By this [link] (https://deno.land/manual/getting_started/permissions#permissions-list) you can find a list of all permissions.*
 
 Let's try to run it again:
 
@@ -569,7 +569,7 @@ Let's try to call the APIs:
 {"id":"1","name":"DDD"}
 ```
 
-Everything is working! 🔥
+Everything works! 🔥
 
 But look at the code differences:
 
