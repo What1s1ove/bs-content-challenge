@@ -21,7 +21,7 @@ Let's imagine that we have a task where we need to make a markup of a form. Some
   <p className="register-form__control-wrapper">
     <CustomSelect label="Type:" options={[]} />
   </p>
-<form>
+</form>
 ```
 
 <details>
@@ -67,7 +67,7 @@ One more example:
       </tr>
     ))}
   </CustomTable>
-<div>
+</div>
 ```
 
 <details>
@@ -180,6 +180,24 @@ Open the [documentation](https://html.spec.whatwg.org/multipage/semantics.html#s
   [The `div` element](https://html.spec.whatwg.org/multipage/grouping-content.html#the-div-element) categories — `flow content`, `palpable content`.
 
 </details>
+
+How can we test ourselves and our application? One of the tools is the official [W3C validator](https://validator.w3.org/).
+
+You can upload the file, paste the code, or use the link to your application.
+
+Let's try using one of our examples at the beginning of the article:
+
+<p align="center">
+  <img src="./img/check-invalid-markup.png" alt="Invalid markup">
+</p>
+
+The result:
+
+<p align="center">
+  <img src="./img/invalid-markup-errors.png" alt="Invalid markup errors">
+</p>
+
+The validator and the browser did not know what we meant when we nested the `<tr>` element inside the `<div>` element. The browser tried to fix the errors itself (because of this, we got the wrong markup), and the validator talks about the stray start `<tr>` tag in the markup. Which is not strange, since according to the [documentation](https://html.spec.whatwg.org/multipage/tables.html#the-tr-element), the `<tr>` element can only be used inside the table tags (`<thead>`, `<tbody>`, `<tfoot>`, `<table>`).
 
 ## Can I Include
 
