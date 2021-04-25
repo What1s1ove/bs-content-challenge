@@ -197,7 +197,7 @@ The result:
   <img src="./img/invalid-markup-errors.png" alt="Invalid markup errors">
 </p>
 
-The validator and the browser did not know what we meant when we nested the `<tr>` element inside the `<div>` element. The browser tried to fix the errors itself (because of this, we got the wrong markup), and the validator talks about the stray start `<tr>` tag in the markup. Which is not strange, since according to the [documentation](https://html.spec.whatwg.org/multipage/tables.html#the-tr-element), the `<tr>` element can only be used inside the table tags (`<thead>`, `<tbody>`, `<tfoot>`, `<table>`).
+The validator and the browser did not know what we meant when we nested the `<tr>` element inside the `<div>` element. The browser tried to fix the errors itself (because of this, we got the wrong markup), and the validator talks about the stray start `<td>` tag in the markup. Which is not strange, since according to the [documentation](https://html.spec.whatwg.org/multipage/tables.html#the-tr-element), the `<tr>` element can only be used inside the table tags (`<thead>`, `<tbody>`, `<tfoot>`, `<table>`).
 
 ## Can I Include
 
