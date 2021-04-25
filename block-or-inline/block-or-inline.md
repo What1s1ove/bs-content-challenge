@@ -203,16 +203,20 @@ The validator and the browser did not know what we meant when we nested the `<tr
 
 Of course you don’t have to memorize all types of content but sometimes you should look there when you are not sure or something is broken.
 
-By analogy with [Can I Use](https://caniuse.com/), the [Can I Include](https://caninclude.glitch.me/) tool has been developed that can help us with this.
+By analogy with [Can I Use](https://caniuse.com/), the [Can Include](https://caninclude.glitch.me/) tool has been developed that can help us with this.
 
 <p align="center">
   <img src="./img/can-i-include.jpg" alt="Can I include">
 </p>
 
+With this tool, we can check if we can nest one element into another.
+
+We can check this in the official documentation, but with CanInclude we can do it faster, since its interface is simpler for this than the documentation.
+
 ## Conclusions
 
 Each HTML element has its own category and its own type of content that it can have. In general, there are **7** types of content that expect a certain nesting into each other.
 
-You *don't have to memorize them all* but sometimes when you have doubts or something is broken you can look at the [documentation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content), check your code in the HTML [validator](https://validator.w3.org/) or use the [CanIUse tool](https://caninclude.glitch.me/) to check yourself.
+You *don't have to memorize them all* but sometimes when you have doubts or something is broken you can look at the [documentation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content), check your code in the HTML [validator](https://validator.w3.org/) or use the [CanInclude tool](https://caninclude.glitch.me/) to check yourself.
 
 When we learn a new foreign language, sometimes we look into the dictionary to check something. The same happens with any other language (markup, programming and etc.) — sometimes you need to look into the dictionary (documentation) to understand why it works this way.
