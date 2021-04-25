@@ -211,8 +211,8 @@ By analogy with [Can I Use](https://caniuse.com/), the [Can I Include](https://c
 
 ## Conclusions
 
-The main thing you have to remember is that *there are **no** block or inline elements in HTML*. There are **7** types of content that expect a certain nesting into each other.
+Each HTML element has its own category and its own type of content that it can have. In general, there are **7** types of content that expect a certain nesting into each other.
 
-You *don't have to memorize them all* but sometimes when you have doubts or something is broken you can look at the [documentation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content) or use this [excellent tool](https://caninclude.glitch.me/) to check yourself.
+You *don't have to memorize them all* but sometimes when you have doubts or something is broken you can look at the [documentation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content), check your code in the HTML [validator](https://validator.w3.org/) or use the [CanIUse tool](https://caninclude.glitch.me/) to check yourself.
 
 When we learn a new foreign language, sometimes we look into the dictionary to check something. The same happens with any other language (markup, programming and etc.) — sometimes you need to look into the dictionary (documentation) to understand why it works this way.
