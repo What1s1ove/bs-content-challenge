@@ -8,4 +8,4 @@
 
 - ### [JS and everyday data structures](./js-and-everyday-data-structures/js-and-everyday-data-structures.md)
 
-- ### [Github actions: basic concepts with code linting](./github-actions-basic-concepts-with-code-linting/github-actions-basic-concepts-with-code-linting.md)
+- ### [Lint your project with Github Actions](./lint-your-project-with-github-actions/lint-your-project-with-github-actions.md)
