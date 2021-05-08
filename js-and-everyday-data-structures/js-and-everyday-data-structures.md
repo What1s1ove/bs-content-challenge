@@ -1,10 +1,10 @@
 # JS and everyday data structures
 
-Let's start with a quote that once changed my life. I am sure that this quote and its understanding will also change yours, if you have not heard about it yet.
+Let's start with a quote that once changed my life. I am sure that this quote and its understanding will also change yours if you have not heard about it yet.
 
 > Bad programmers worry about the code. Good programmers worry about data structures and their relationships. &copy; [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds)
 
-We will talk about data structures, but it is impossible to talk about them without mentioning algorithms. So let's talk a little about both things.
+We will talk about data structures but it is impossible to talk about them without mentioning algorithms. So let's talk a little bit about both things.
 
 Algorithms are the steps we need to take to solve a problem. Data structures are organized data with efficient and convenient access to them.
 
@@ -16,14 +16,14 @@ Algorithms are the steps we need to take to solve a problem. Data structures are
 
 ## Data structures in JS
 
-JS has two basic data-structures that can be reused in different ways depending on the requirements. Therefore, they support a large number of methods of different structures, which would be separate in other program languages.
+JS has two basic data-structures that can be reused in different ways depending on the requirements. Therefore, they support a large number of methods of different structures which would be separate in other program languages.
 
 - Object (Enum, Map, Graph, etc);
 - Array (List, Stack, Queue, etc).
 
 ## Let's get started! 🔥
 
-We will use this user type for examples:
+We will use this user type for further examples:
 
 ```ts
 type User = {
@@ -32,7 +32,7 @@ type User = {
 }
 ```
 
-Do not worry if you are not familiar with [TypeScript](https://www.typescriptlang.org/). The example of a type is given so that you understand the approximate structure of the user.
+Do not worry if you are not familiar with [TypeScript](https://www.typescriptlang.org/). The example of the type is given so that you understand the approximate structure of the user.
 
 ## The Task
 
@@ -57,13 +57,17 @@ That's it. The task is done. Buuut... we can do it *better*.
 
 Let's imagine that in our code there will be or there are already places where we check something by the user's gender. We duplicate the code. It is not good. Also if we use *just a string* all the time, sooner or later, we will make a mistake. In fact, such errors are not very easy to find.
 
-Let's solve this problem too. We will protect ourselves from this. We will use a *single source of truth* — **`CONSTANT`**'s.
+Let's solve this task too. We will protect ourselves from this. We will use a *single source of truth* — **`CONSTANT`**'s.
 
 ## CONSTANT
 
-`CONSTANT`s are used to describe data that is known *before the start* of the program and that *should not be changed* during the execution of the program. It is important that the constant is not the `const` keyword for variables. The constant can be declared with any keyword for variables (`var`, `let`, `const`), but `const` is commonly used.
+`CONSTANT`s are used to describe data that is known *before the start* of the program and that *should not be changed* during the execution of the program.
 
-Constants are a very important and popular approach to organizing program code. And for them there are several conventions among the developers:
+> When associated with an identifier, a constant is said to be "named," although the terms "constant" and "named constant" are often used interchangeably. [Wikipedia](https://en.wikipedia.org/wiki/Constant_(computer_programming))
+
+The constant can be declared with any keyword for variables (`var`, `let` or `const`), but `const` is commonly used.
+
+Constants are a very important and popular approach to organize program code. And there are several conventions among developers for them:
 
 - Constant must be declared at the top of the program/module (after imports, if any);
 - Constant must have a name in capital letters;
@@ -140,15 +144,17 @@ const FEMALE_GENDER_TYPE = 'female';
 </ul>
 ```
 
-Much better, but we can improve it even more.
+Much better but we can improve it even more.
 
-Have you noticed that we duplicate `GENDER_TYPE` in the name? It is not critical, but annoying 🙃. Also, if we needed some values, we would have to import each constant separately.
+Have you noticed that we duplicate `GENDER_TYPE` in the name? It is not critical but annoying 🙃. Also if we needed some values, we would have to import each constant separately.
 
 It would be cool if there was a data structure that would help us with this as well. And there is such a structure — **`Enum`**.
 
 ## Enum
 
 `Enum` (enumeration) — a data structure that is used to enumerate a set of fixed values (set of constants).
+
+Other programming languages have a separate data type for Enum. But JS does not have this type of data (at least for now. More on that below). The regular object is usually used to imitate Enum in JS.
 
 For this structure, JavaScript also has conventions among developers:
 
@@ -223,14 +229,14 @@ const GenderType = {
 </ul>
 ```
 
-We could keep using constants, but it is much better and more correct to use structures that are better suited for this.
+We could keep using constants but it is much better and more correct to use structures that are better suited for this.
 
-Also, if we do the task with TypeScript, we can also change a little bit the type of the user. This is *many times better* than using just strings.
+Also if we do the task with TypeScript, we can also change a little bit the type of the user. This is *many times better* than using just strings.
 
 ```ts
 type User = {
   name: string;
-  gender: typeof GenderType;
+  gender: typeof GenderType[keyof typeof GenderType];
 }
 ```
 
@@ -246,7 +252,7 @@ Let's now imagine that a business comes to us and says that they want us to add 
         <p>
           {it.gender === GenderType.MALE
             ? '👨'
-            : GenderType.FEMALE
+            : it.gender === GenderType.FEMALE
             ? '👩'
             : '🧑'}
         </p>
@@ -255,7 +261,7 @@ Let's now imagine that a business comes to us and says that they want us to add 
 </ul>
 ```
 
-But it looks very ugly. We could replace this with a `switch` statement, or a helper function that does it itself. It is much better, but we can also use special structures for this. We can use a **`Map`** data structure to make the solution more flexible and readable.
+But it looks very ugly. We could replace this with a `switch` statement, or a helper function that does it itself. It is much better but we can also use special structures for this. We can use a **`Map`** data structure to make the solution more flexible and readable.
 
 ## Map
 
@@ -263,11 +269,11 @@ But it looks very ugly. We could replace this with a `switch` statement, or a he
 
 JS has a [`new Map` constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) out of the box. The key difference from a common object is the ability to use any data type (even an object) as a key.
 
-Usually, using the JS Map constructor is overkill. If you need the functionality that the JS Map provides you need to use it. But usually a common object is used to build this structure.
+Usually, using the JS Map constructor is overkill. If you need the functionality that the JS Map provides you need to use it. But usually a common object is used to imitate this structure.
 
 There are some conventions how to configure this structure:
 
-- Map must have a name by one of these patterns — `<someValue>To<someValue>` or `<someValue>Map` (the first pattern is used more often).
+- Map must have a name by one of these patterns — `XToY` or `xMap` (`UserToPerson` or `userMap`).The first pattern is used more often.
 
 <details>
   <summary>Examples</summary>
@@ -304,7 +310,7 @@ There are some conventions how to configure this structure:
 
 </details>
 
-This is how the solution might look like using the `Map`:
+Here is how the solution might look like using the `Map`:
 
 ```jsx
 // src/common/enums/gender-type.enum.js
@@ -509,9 +515,9 @@ Do not forget to check the [proposals](https://github.com/tc39/proposals) that m
 
 ## Conclusions
 
-Data structures are awesome! They help us to solve tasks in a beautiful and convenient way. With the right data structures, it's easier to build algorithms or not write code at all. The data structure may already be the solution to the task.
+Data structures are awesome! They help us to solve tasks in a neat and convenient way. With the right data structures it's easier to build algorithms or not write code at all. The data structure may already be the solution to the task.
 
-A huge plus is that if you do them according to the conventions that are present in the JavaScript language, most developers will understand many times faster than coming up with something 'new'.
+A huge plus is that if you do them according to the conventions that are present in the JavaScript language, most developers will understand your code much faster than coming up with something 'new'.
 
 Most things are already invented for us 🙂
 
