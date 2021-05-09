@@ -4,11 +4,11 @@
 
 **`Github Actions`** are commands for github to run some code every time an *event* occurs (Push, Merge, PR and etc.). The code runs on github virtual machines.
 
-What does this code do? Anything. But most importantly, it allows you to automate things necessary for your development process: run tests/lints, deployment, notify people.
+What does this code do? Anything. It allows you to automate things necessary for your development process: run tests/lints, deployment, notify people.
 
 Github Actions gives a nice and free CI/CD, and also allows you to create a flexible and easily configurable system for development.
 
-Let's look at a simple example — for each push to one of the environment branches (`development`, `staging`, `production`), linting will be run (example will use `JavaScript`).
+Let's look at the simple example — for each push to one of the environment branches (`development`, `staging`, `production`) we will run linting (example will use `JavaScript`).
 
 Action Example:
 
@@ -50,13 +50,13 @@ jobs: # list of things to do
 ### Steps syntax
 
   - **`name`** — needed to be displayed in the github interface;
-  - **`uses`** — specify the name of other action, if we want to use it. You can find many ready-made actions in the [marketplace](https://github.com/marketplace);
+  - **`uses`** — specify the name of custom actions if we want to use it. You can find many ready-made actions in the [marketplace](https://github.com/marketplace);
   - **`with`** — parameters for custom actions;
   - **`run`** — runs commands in the `shell`. *It is forbidden to use a shell commands with custom actions.*
 
 That's it, we took apart a small but useful example of the github action!
 
-## Simple project init
+## Init simple project
 
 Let's set up a simple project to see how it works!
 
@@ -90,17 +90,12 @@ parserOptions:
 Also, do not forget to update the scripts section in the `package.json`.
 
 ```json
-// package.json
+// scripts in package.json
 
 {
-  "private": true,
   "scripts": {
     "lint:js": "eslint src/**/*.js",
     "lint": "npm run lint:js"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "7.24.0"
   }
 }
 ```
@@ -127,10 +122,22 @@ To prohibit merging a pull request when linting fails, go to the repository sett
   <img src="./img/branch-protection.jpg" alt="Branch Protection">
 </p>
 
-Now in each pull request to the branch we need we will see the result of the action.
+Now in each pull request to the branch we need we will see the result of the action. If all is well, the action will be passed:
 
 <p align="center">
   <img src="./img/success-linting.jpg" alt="Success linting">
+</p>
+
+But if we broke something the action will be failed:
+
+<p align="center">
+  <img src="./img/fail-linting.jpg" alt="Fail linting">
+</p>
+
+Inside each action we can find out what exactly went wrong. For example, here the action tells us that there are unused variables in the code:
+
+<p align="center">
+  <img src="./img/linting-error.jpg" alt="Linting Error">
 </p>
 
 ## Linting other files
@@ -140,6 +147,10 @@ For now, we only check the format of the `js` files. It is not very good. Attent
 ### Style Lint
 
 [Stylelint](https://stylelint.io/) is a mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
+
+I use a simple example in which I just extend the config from the recommended. But even with this couple of lines we will protect our styles.
+
+Stylelint supports a huge number of configuration options. Be sure to check the [documentation](https://stylelint.io/user-guide/configure) to find the rules that fit your project.
 
 ```
 npm install stylelint stylelint-config-standard -DE
@@ -157,20 +168,13 @@ extends:
 Updated `package.json`:
 
 ```json
-// package.json
+// scripts in package.json
 
 {
-  "private": true,
   "scripts": {
     "lint:css": "stylelint src/**/*.css",
     "lint:js": "eslint src/**/*.js",
     "lint": "npm run lint:css && npm run lint:js"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "7.24.0",
-    "stylelint": "13.12.0",
-    "stylelint-config-standard": "21.0.0"
   }
 }
 ```
@@ -202,22 +206,14 @@ charset = utf-8
 Updated `package.json`:
 
 ```json
-// package.json
+// scripts in package.json
 
 {
-  "private": true,
   "scripts": {
     "lint:editorconfig": "editorconfig-checker",
     "lint:css": "stylelint src/**/*.css",
     "lint:js": "eslint src/**/*.js",
     "lint": "npm run lint:editorconfig && npm run lint:css && npm run lint:js"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "editorconfig-checker": "4.0.2",
-    "eslint": "7.24.0",
-    "stylelint": "13.12.0",
-    "stylelint-config-standard": "21.0.0"
   }
 }
 ```
@@ -248,24 +244,15 @@ ignore:
 Updated `package.json`:
 
 ```json
-// package.json
+// scripts in package.json
 
 {
-  "private": true,
   "scripts": {
     "lint:ls": "ls-lint",
     "lint:editorconfig": "editorconfig-checker",
     "lint:css": "stylelint src/**/*.css",
     "lint:js": "eslint src/**/*.js",
     "lint": "npm run lint:ls && npm run lint:editorconfig && npm run lint:css && npm run lint:js"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@ls-lint/ls-lint": "1.9.2",
-    "editorconfig-checker": "4.0.2",
-    "eslint": "7.24.0",
-    "stylelint": "13.12.0",
-    "stylelint-config-standard": "21.0.0"
   }
 }
 ```
@@ -282,6 +269,7 @@ Some examples:
 
 - Running tests on each pull request;
 - Deploying on push to production branch;
+- Prettify your code before merging (using [prettier](https://prettier.io/) or something like this);
 - Sending notifications on each pull request/issue, etc.
 
 And many more interesting things 🔥
