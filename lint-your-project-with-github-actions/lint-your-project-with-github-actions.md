@@ -269,7 +269,8 @@ Some examples:
 
 - Running tests on each pull request;
 - Deploying on push to production branch;
-- Prettify your code before merging (using [prettier](https://prettier.io/) or something like this);
+- [Prettify](https://prettier.io/) your code before merging;
+- Publishing packages;
 - Sending notifications on each pull request/issue, etc.
 
 And many more interesting things 🔥
