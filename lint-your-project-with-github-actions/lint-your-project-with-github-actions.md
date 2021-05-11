@@ -259,6 +259,12 @@ Updated `package.json`:
 }
 ```
 
+Now **4** linters will run for each pull request. Hope you and your team will follow and improve the linters configs. And you will always see the linter result without errors:
+
+<p align="center">
+  <img src="./img/full-linting.jpg" alt="Full linting">
+</p>
+
 ## Pricing
 
 Github actions are not free. Now the free plan gives ~2000 minutes. Usually this is enough for small and medium projects.
