@@ -118,6 +118,8 @@ In the github interface, the runs will look like this:
 
 To prohibit merging a pull request when linting fails, go to the repository settings and set the merge rules for the branch you want.
 
+To do this we need to check the *Require status checks to pass before merging* checkbox and select the checks we need. In our case, this is *Linting* (the name is taken from the action config).
+
 <p align="center">
   <img src="./img/branch-protection.jpg" alt="Branch Protection">
 </p>
@@ -256,6 +258,12 @@ Updated `package.json`:
   }
 }
 ```
+
+## Pricing
+
+Github actions are not free. Now the free plan gives ~2000 minutes. Usually this is enough for small and medium projects.
+
+You can always find up-to-date information on the use-plan [here](https://github.com/pricing).
 
 ## Conclusions
 
