@@ -96,7 +96,7 @@ This is how the browser behaves when we try to nest one element incorrectly with
 
 ## 7 types of HTML Element
 
-Each element in HTML falls into zero or more categories that group elements with similar characteristics together, has its own content model and other nuances and features. For example [the p element](https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element):
+Each element in HTML falls into zero or more categories that group elements with similar characteristics together has its own content model and other nuances and features. For example, [the p element](https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element):
 
 <p align="center">
   <img src="./img/p-element.jpg" alt="Invalid markup">
@@ -183,7 +183,7 @@ Open the [documentation](https://html.spec.whatwg.org/multipage/semantics.html#s
 
 How can we test ourselves and our application? One of the tools is the official [W3C validator](https://validator.w3.org/).
 
-You can upload the file, paste the code, or use the link to your application.
+You can upload the file, paste the code or use the link to your application.
 
 Let's try using one of our examples at the beginning of the article:
 
@@ -197,7 +197,7 @@ The result:
   <img src="./img/invalid-markup-errors.png" alt="Invalid markup errors">
 </p>
 
-The validator and the browser did not know what we meant when we nested the `<tr>` element inside the `<div>` element. The browser tried to fix the errors itself (because of this, we got the wrong markup), and the validator talks about the stray start `<td>` tag in the markup. Which is not strange, since according to the [documentation](https://html.spec.whatwg.org/multipage/tables.html#the-tr-element), the `<tr>` element can only be used inside the table tags (`<thead>`, `<tbody>`, `<tfoot>`, `<table>`).
+The validator and the browser did not know what we meant when we nested the `<tr>` element inside the `<div>` element. The browser tried to fix the errors itself (because of this, we got the wrong markup) and the validator talks about the stray start `<td>` tag in the markup. Which is not strange since according to the [documentation](https://html.spec.whatwg.org/multipage/tables.html#the-tr-element), the `<tr>` element can only be used inside the table tags (`<thead>`, `<tbody>`, `<tfoot>`, `<table>`).
 
 ## Can I Include
 
@@ -211,7 +211,7 @@ By analogy with [Can I Use](https://caniuse.com/), the [Can Include](https://can
 
 With this tool, we can check if we can nest one element into another.
 
-We can check this in the official documentation, but with CanInclude we can do it faster, since its interface is simpler for this than the documentation.
+We can check this in the official documentation but with CanInclude we can do it faster since its interface is simpler for this than the documentation.
 
 ## Conclusions
 
