@@ -1,4 +1,4 @@
-# Github actions: basic concepts with code linting
+# Lint your project with Github Actions
 
 ## Github Actions in general
 
