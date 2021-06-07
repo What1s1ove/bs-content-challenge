@@ -1,12 +1,56 @@
 # Lint your project with Github Actions
 
+## Init simple project
+
+Let's set up a simple project to see how it works!
+
+```
+npm init -y
+```
+
+Install [ESLint](https://eslint.org/). ESLint is a tool for identifying and reporting on patterns found in JavaScript code.
+
+```
+npm install eslint -DE
+```
+
+ESLint [configuration file](https://eslint.org/docs/user-guide/configuring/configuration-files) example:
+
+```yml
+# .eslintrc.yml
+
+env:
+  es2021: true
+  browser: true
+
+extends:
+  - eslint:recommended
+
+parserOptions:
+  ecmaVersion: 2021
+  sourceType: module
+```
+
+Also, do not forget to update the scripts section in the `package.json`.
+
+```json
+// scripts in package.json
+
+{
+  "scripts": {
+    "lint:js": "eslint src/**/*.js",
+    "lint": "npm run lint:js"
+  }
+}
+```
+
 ## Github Actions in general
 
 **`Github Actions`** are commands for github to run some code every time an *event* occurs (Push, Merge, PR and etc.). The code runs on github virtual machines.
 
 What does this code do? Anything. It allows you to automate things necessary for your development process: run tests/lints, deployment, notify people.
 
-Github Actions gives a nice and free CI/CD, and also allows you to create a flexible and easily configurable system for development.
+Github Actions gives a nice and free CI/CD and also allows you to create a flexible and easily configurable system for development.
 
 Let's look at the simple example — for each push to one of the environment branches (`development`, `staging`, `production`) we will run linting (example will use `JavaScript`).
 
@@ -55,50 +99,6 @@ jobs: # list of things to do
   - **`run`** — runs commands in the `shell`. *It is forbidden to use a shell commands with custom actions.*
 
 That's it, we took apart a small but useful example of the github action!
-
-## Init simple project
-
-Let's set up a simple project to see how it works!
-
-```
-npm init -y
-```
-
-Install [ESLint](https://eslint.org/). ESLint is a tool for identifying and reporting on patterns found in JavaScript code.
-
-```
-npm install eslint -DE
-```
-
-ESLint [configuration file](https://eslint.org/docs/user-guide/configuring/configuration-files) example:
-
-```yml
-# .eslintrc.yml
-
-env:
-  es2021: true
-  browser: true
-
-extends:
-  - eslint:recommended
-
-parserOptions:
-  ecmaVersion: 2021
-  sourceType: module
-```
-
-Also, do not forget to update the scripts section in the `package.json`.
-
-```json
-// scripts in package.json
-
-{
-  "scripts": {
-    "lint:js": "eslint src/**/*.js",
-    "lint": "npm run lint:js"
-  }
-}
-```
 
 In the github interface, the runs will look like this:
 
