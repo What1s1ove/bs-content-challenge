@@ -13,7 +13,7 @@ Most likely, you have worked with his product 😉
 <details>
   <summary>Answer</summary>
 
-  [**Ryan Dahl**](https://en.wikipedia.org/wiki/Ryan_Dahl) is a software engineer and the original developer of the **`Node.js`** (~2009 year). In January 2012, Dahl announced that he turn over the reins to [NPM](https://en.wikipedia.org/wiki/Npm_(software)) creator.
+  [**Ryan Dahl**](https://en.wikipedia.org/wiki/Ryan_Dahl) is a software engineer and the original developer of the **`Node.js`** (~2009 year). In January 2012, Dahl announced that he turned over the reins to [NPM](https://en.wikipedia.org/wiki/Npm_(software)) creator.
 
   In 2018 he made a presentation ['10 things I regret about Node.js'](https://www.youtube.com/watch?v=M3BM9TB-8yA&vl=en) at the [JSConf](https://jsconf.com/) conference. Also, at this presentation, he announced [Deno](https://deno.land/) — a secure runtime for JavaScript and TypeScript.
 </details>
@@ -26,7 +26,7 @@ Let's imagine a situation: Business comes to us and says us to rewrite the proje
 
 But why? Who knows 🙂
 
-For now, let's imagine that there is no other way, and we need to do it. But then what? Do we really need to rewrite most of the code in the project?
+For now, let's imagine that there is no other way and we need to do it. But then what? Do we really need to rewrite most of the code in the project?
 
 Let's check this with an example of a small project.
 
@@ -258,12 +258,12 @@ export { Oak };
 
 Two questions immediately arise: what is `dependencies.ts` and why do we use a link to import packages?
 
-Let's start at the end. Two reasons that Ryan talked about in his [presentation](https://www.youtube.com/watch?v=M3BM9TB-8yA&t=1369s) and that he tried to fix this in Deno are `node_modules` and `package.json`.
+Let's start from the end. Two reasons that Ryan talked about in his [presentation](https://www.youtube.com/watch?v=M3BM9TB-8yA&t=1369s) and that he tried to fix this in Deno are `node_modules` and `package.json`.
 
 Why:
 
 - `package.json`:
-  - Allow Nod's `require()` to inspect package.json files for "main";
+  - Allow Node's `require()` to inspect package.json files for "main";
   - Included NPM in the Node distribution, which much made it the defacto standard;
   - It's unfortunate that there is centralized (privately controlled even) repository for modules;
   - Allowing `package.json` gave rise to the concept of a "module" as a directory of files;
@@ -280,7 +280,7 @@ Why:
 
 (The reasons are taken from Dahl's presentation). When the program is launched for the first time, modules are downloaded and cached in the system. And when reused, they will be taken from there. While reusing modules, they will be taken from the cache.
 
-Now about `dependencies.ts`. It's just a file that I created to store all third-party project's dependencies (name can be whatever). It is allowed to include third-party modules in any part of the program, but this is not a good practice. It is better to keep all the modules in one place.
+Now about `dependencies.ts`. It's just a file that I created to store all third-party project's dependencies (name can be whatever). It is allowed to include third-party modules in any part of the program but this is not a good practice. It is better to keep all the modules in one place.
 
 Let's try to run the code again. We get the following error:
 
@@ -308,14 +308,14 @@ Everything looks fine. What is the problem?
 
 It would seem that we can miss the file name if the file is called `index`.
 
-This is possible, but only in NodeJS. In Deno, we must always explicitly specify the file with its extension.
+This is possible but only in NodeJS. In Deno we must always explicitly specify the file with its extension.
 
 These are two more reasons Dahl regrets about Node:
 
 - `index.js`:
-  - I thought it was cute, because there was `index.html`;
+  - I thought it was cute because there was `index.html`;
   - It needlessly complicated the module loading system;
-  - It became especially unnecessary after require supported `package.json`.
+  - It became especially unnecessary after `require` supported `package.json`.
 
 - modules without the extension:
   - Needlessly less explicit;
@@ -323,7 +323,7 @@ These are two more reasons Dahl regrets about Node:
   - The module loader has to query the file system at multiple locations trying to guess what the user intended.
 
 
-Let's fix this, and a few other errors that we will run into.
+Let's fix this and a few other errors that we will run into.
 
 1. ### Resole magic names
     ```ts
@@ -336,19 +336,28 @@ Let's fix this, and a few other errors that we will run into.
     ```
 
 2. ### Resolve magic variables/functions/modules that are only available in Node
-    ```
+    ```diff
     error: Uncaught ReferenceError: __dirname is not defined
-    app.use(serve(resolve(__dirname, '../public')));
+
+    - app.use(serve(resolve(__dirname, '../public')));
+    + await Oak.send(ctx, ctx.request.url.pathname, {
+    +   root: 'public',
+    +   index: 'index.html',
+    + });
     ```
 
-    ```
+    ```diff
     error: Uncaught ReferenceError: require is not defined
-    const contentType = require('./content-type.enum');
+
+    - const contentType = require('./content-type.enum');
+    + import contentType from './content-type.enum.ts';
     ```
 
-    ```
+    ```diff
     error: Uncaught ReferenceError: module is not defined
-    module.exports = {
+
+    - module.exports = {
+    + export {
     ```
 3. ### Resolve take variables from env
     ```diff
@@ -607,12 +616,12 @@ Not sure if this was done on purpose (hope so), but there is something similar h
 
 ## Conclusions
 
-Until recently, Node had almost no competitors ([io.js](https://en.wikipedia.org/wiki/Node.js#History) ?) and was almost the only platform where we could run JavaScript on the server.
+Until recently Node had almost no competitors ([io.js](https://en.wikipedia.org/wiki/Node.js#History) ?) and was almost the only platform where we could run JavaScript on the server.
 
 But now, Node has a worthy competitor, Deno — a **secure** runtime for **JavaScript** and **TypeScript**, who will step on its heels every day.
 
 Competition is usually always good!
 
-This article did not cover all topics such as [code linting](https://deno.land/manual@v1.9.0/tools/linter), [code formatting](https://deno.land/manual/tools/formatter), [code testing](https://deno.land/manual@v1.9.0/testing), and etc. By the way, *most of this Deno has out of the box* 😉
+This article does not cover all topics such as [code linting](https://deno.land/manual@v1.9.0/tools/linter), [code formatting](https://deno.land/manual/tools/formatter), [code testing](https://deno.land/manual@v1.9.0/testing), etc. By the way, *most of this Deno has out of the box* 😉
 
-There is no need to run and rewrite everything, but at least everyone should take a look and try Deno. People who have already worked with Node shouldn't take a lot of effort to make friends with this beautiful technology.
+There is no need to run and rewrite everything but at least every JS developer should take a look and try Deno. People who have already worked with Node shouldn't take a lot of effort to make friends with this beautiful technology.
