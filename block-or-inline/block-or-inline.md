@@ -96,7 +96,7 @@ This is how the browser behaves when we try to nest one element incorrectly with
 
 ## 7 types of HTML Element
 
-Each element in HTML falls into zero or more categories that group elements with similar characteristics together has its own content model and other nuances and features. For example, [the p element](https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element):
+Each element in HTML falls into zero or more categories that group elements with similar characteristics together and has its own content model and other nuances and features. For example, [the p element](https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element):
 
 <p align="center">
   <img src="./img/p-element.jpg" alt="Invalid markup">
@@ -215,7 +215,7 @@ We can check this in the official documentation but with CanInclude we can do it
 
 ## Conclusions
 
-HTML may break, may not look as expected and that's okay. It's not bad HTML it just has its own rules. You just need to understand that something could break just because of incorrect nesting and know where it can be quickly checked.
+HTML may break or may not look as expected and that's okay. It's not bad HTML it just has its own rules. You just need to understand that something could break just because of incorrect nesting and know where it can be quickly checked.
 
 Each HTML element has its own category and its own type of content that it can have. In general, there are **7** types of content that expect a certain nesting into each other.
 
