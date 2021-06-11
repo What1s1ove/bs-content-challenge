@@ -217,6 +217,4 @@ We can check this in the official documentation but with CanInclude we can do it
 
 HTML may break or may not look as expected and that's okay. It's not bad HTML it just has its own rules. You just need to understand that something could break just because of incorrect nesting and know where it can be quickly checked.
 
-Each HTML element has its own category and its own type of content that it can have. In general, there are **7** types of content that expect a certain nesting into each other.
-
-You *don't have to memorize them all* but sometimes when you have doubts or something is broken you can look at the [documentation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content), check your code in the HTML [validator](https://validator.w3.org/) or use the [CanInclude tool](https://caninclude.glitch.me/) to check yourself.
+In general, there are **7** types of content that expect a certain nesting into each other. Each HTML element has its own category and its own type of content that it can have. You *don't have to memorize them all* but sometimes when you have doubts or something is broken you can look at the [documentation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content), check your code in the HTML [validator](https://validator.w3.org/) or use the [CanInclude tool](https://caninclude.glitch.me/) to check yourself.
