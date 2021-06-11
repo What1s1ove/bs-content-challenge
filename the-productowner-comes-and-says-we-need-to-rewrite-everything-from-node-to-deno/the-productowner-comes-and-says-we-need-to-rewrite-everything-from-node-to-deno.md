@@ -1,4 +1,4 @@
-# Business comes and tells: We need to rewrite everything from Node to Deno...
+# The product owner comes and says: We need to rewrite everything from Node to Deno...
 
 Let's start with the riddle, who is shown in this photo? 🙂
 
@@ -8,7 +8,7 @@ Let's start with the riddle, who is shown in this photo? 🙂
   </a>
 </p>
 
-Most likely, you have worked with his product 😉
+Most likely, you have worked with his product. 😉
 
 <details>
   <summary>Answer</summary>
@@ -22,11 +22,11 @@ In this article, we will take a look at `Deno` and how it compares to `Node.js` 
 
  ## Project
 
-Let's imagine a situation: Business comes to us and says us to rewrite the project from [Node](https://nodejs.org) to [Deno](https://deno.land).
+Let's imagine a situation: A product owner comes to us and tells us to rewrite the project from [Node](https://nodejs.org) to [Deno](https://deno.land).
 
-But why? Who knows 🙂
+But why? Who knows, it’s just an example. 🙂
 
-For now, let's imagine that there is no other way and we need to do it. But then what? Do we really need to rewrite most of the code in the project?
+For now, let's imagine that there is no other way around this decision and we need to do it. But then what? Do we really need to rewrite most of the code in the project?
 
 Let's check this with an example of a small project.
 
@@ -219,7 +219,7 @@ error: Cannot resolve module "file:///src/services/services" from "file:///src/s
   at file:///src/server.ts:8:0
 ```
 
-But interestingly, we did not receive an error saying that we use code TypeScript. This is because Deno supports TypeScript out of the box!
+But interestingly, we did not receive an error saying that we use TypeScript code. This is because Deno supports TypeScript out of the box!
 
 If we tried to run code written with TypeScript in NodeJS without using `ts-node` (or any other *additional package*), we would immediately get errors about the unknown syntax.
 
@@ -280,7 +280,7 @@ Why:
 
 (The reasons are taken from Dahl's presentation). When the program is launched for the first time, modules are downloaded and cached in the system. And when reused, they will be taken from there. While reusing modules, they will be taken from the cache.
 
-Now about `dependencies.ts`. It's just a file that I created to store all third-party project's dependencies (name can be whatever). It is allowed to include third-party modules in any part of the program but this is not a good practice. It is better to keep all the modules in one place.
+Now about `dependencies.ts`. It's just a file that I created to store all third-party project's dependencies (the name can be whatever). Third-party modules can be included in any part of the program but this is not a good practice. It is better to keep all the modules in one place.
 
 Let's try to run the code again. We get the following error:
 
@@ -310,7 +310,7 @@ It would seem that we can miss the file name if the file is called `index`.
 
 This is possible but only in NodeJS. In Deno we must always explicitly specify the file with its extension.
 
-These are two more reasons Dahl regrets about Node:
+These are two more things Dahl regrets about Node:
 
 - `index.js`:
   - I thought it was cute because there was `index.html`;
@@ -539,9 +539,9 @@ error: Uncaught PermissionDenied: Requires env access to "PORT", run again with 
     SERVER_PORT: Deno.env.get('PORT'),
 ```
 
-But this time an error that was not received before.
+But this time it is an error that was not received before.
 
-Another reason, which Ryan regrets is security in NodeJS:
+Another issue which Ryan regrets is security in NodeJS:
 
 - V8 by itself is a very good security sandbox;
 - Had I put more thought into how that could be maintained for certain applications, Node could have had some nice security guarantees not available in any other language;
@@ -610,7 +610,7 @@ const isEasterEgg = checkIsSameStr('Node', 'Deno'); // true
 const isEasterEgg = checkIsSameStr('Koa', 'Oak'); // true
 ```
 
-Not sure if this was done on purpose (hope so), but there is something similar here, isn't it? 😉
+Not sure if this was done on purpose (I hope so), but there is something similar here, isn't there? 😉
 
 *(There are a number of other packages that are named similarly.)*
 
@@ -622,6 +622,6 @@ But now, Node has a worthy competitor, Deno — a **secure** runtime for **JavaS
 
 Competition is usually always good!
 
-This article does not cover all topics such as [code linting](https://deno.land/manual@v1.9.0/tools/linter), [code formatting](https://deno.land/manual/tools/formatter), [code testing](https://deno.land/manual@v1.9.0/testing), etc. By the way, *most of this Deno has out of the box* 😉
+This article does not cover all topics such as [code linting](https://deno.land/manual@v1.9.0/tools/linter), [code formatting](https://deno.land/manual/tools/formatter), [code testing](https://deno.land/manual@v1.9.0/testing), etc. By the way, *most of these things Deno has out of the box* 😉
 
 There is no need to run and rewrite everything but at least every JS developer should take a look and try Deno. People who have already worked with Node shouldn't take a lot of effort to make friends with this beautiful technology.
