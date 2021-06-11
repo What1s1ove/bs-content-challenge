@@ -48,11 +48,11 @@ Also, do not forget to update the scripts section in the `package.json`.
 
 **`Github Actions`** are commands for github to run some code every time an *event* occurs (Push, Merge, PR and etc.). The code runs on github virtual machines.
 
-What does this code do? Anything. It allows you to automate things necessary for your development process: run tests/lints, deployment, notify people.
+What does this code do? Anything. It allows you to automate things necessary for your development process: run tests/lints, deployment, and notify people.
 
-Github Actions gives a nice and free CI/CD and also allows you to create a flexible and easily configurable system for development.
+Github Actions give a nice and free CI/CD and also allow you to create a flexible and easily configurable system for development.
 
-Let's look at the simple example — for each push to one of the environment branches (`development`, `staging`, `production`) we will run linting (example will use `JavaScript`).
+Let's look at a simple example — for each push to one of the environment branches (`development`, `staging`, `production`) we will run linting (example will use `JavaScript`).
 
 Action Example:
 
@@ -130,7 +130,7 @@ Now in each pull request to the branch we need we will see the result of the act
   <img src="./img/success-linting.jpg" alt="Success linting">
 </p>
 
-But if we broke something the action will be failed:
+But if we broke something the action will fail:
 
 <p align="center">
   <img src="./img/fail-linting.jpg" alt="Fail linting">
@@ -259,7 +259,7 @@ Updated `package.json`:
 }
 ```
 
-Now **4** linters will run for each pull request. Hope you and your team will follow and improve the linters configs. And you will always see the linter result without errors:
+Now **4** linters will run for each pull request. I hope you and your team will follow and improve the linters configs. And you will always see the linter result without errors:
 
 <p align="center">
   <img src="./img/full-linting.jpg" alt="Full linting">
@@ -273,7 +273,7 @@ You can always find up-to-date information on the use-plan [here](https://github
 
 ## Conclusions
 
-You know the basics of Github Actions now. I hope this article clarifies the principles of github actions.
+You know the basics of Github Actions now, and I hope this article clarifies all of the basic principles.
 
 This example does not cover all the opportunities. Github has a wonderful [documentation](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions), which describes many interesting things!
 
@@ -286,5 +286,3 @@ Some examples:
 - [Prettify](https://prettier.io/) your code before merging;
 - Publishing packages;
 - Sending notifications on each pull request/issue, etc.
-
-And many more interesting things 🔥

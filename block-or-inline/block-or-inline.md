@@ -201,7 +201,7 @@ The validator and the browser did not know what we meant when we nested the `<tr
 
 ## Can I Include
 
-Of course you don’t have to memorize all types of content but sometimes you should look there when you are not sure or something is broken.
+Of course you don’t have to memorize all types of content but sometimes you should look there when you are not sure whether something is broken.
 
 By analogy with [Can I Use](https://caniuse.com/), the [Can Include](https://caninclude.glitch.me/) tool has been developed that can help us with this.
 
