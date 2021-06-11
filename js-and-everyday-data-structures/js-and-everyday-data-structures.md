@@ -1,10 +1,10 @@
 # JS and everyday data structures
 
-Let's start with a quote that once changed my life. I am sure that this quote and its understanding will also change yours if you have not heard about it yet.
+Let's start with a quote that once changed my life. I am sure that this quote and its understanding will also change yours if you have not heard it yet.
 
 > Bad programmers worry about the code. Good programmers worry about data structures and their relationships. &copy; [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds)
 
-We will talk about data structures but it is impossible to talk about them without mentioning algorithms. So let's talk a little bit about both things.
+We will talk about data structures, but first, it is impossible to talk about them without mentioning algorithms.
 
 Algorithms are the steps we need to take to solve a problem. Data structures are organized data with efficient and convenient access to them.
 
@@ -12,7 +12,7 @@ Algorithms are the steps we need to take to solve a problem. Data structures are
   <i>Programming is always = algorithms ➕ data structures.</i>
 </p>
 
-*When solving a problem, it should be borne in mind that choosing the right data structure may be a solution for the problem (no need to write any code)*
+*When solving a problem, it should be kept in mind that choosing the right data structure may be a solution for the problem (no need to write any code)*
 
 ## Data structures in JS
 
@@ -55,7 +55,7 @@ It might look like this:
 
 That's it. The task is done. Buuut... we can do it *better*.
 
-Let's imagine that in our code there will be or there are already places where we check something by the user's gender. We duplicate the code. It is not good. Also if we use *just a string* all the time, sooner or later, we will make a mistake. In fact, such errors are not very easy to find.
+Let's imagine that in our code there will be or there already are places where we check something by the user's gender. We duplicate the code. It is not good. Also if we use *just a string* all the time, sooner or later, we will make a mistake. In fact, such errors are not very easy to find.
 
 Let's solve this task too. We will protect ourselves from this. We will use a *single source of truth* — **`CONSTANT`**'s.
 
@@ -144,9 +144,9 @@ const FEMALE_GENDER_TYPE = 'female';
 </ul>
 ```
 
-Much better but we can improve it even more.
+Much better, but we can improve it even more.
 
-Have you noticed that we duplicate `GENDER_TYPE` in the name? It is not critical but annoying 🙃. Also if we needed some values, we would have to import each constant separately.
+Have you noticed that we duplicate `GENDER_TYPE` in the name? It is not critical, but annoying 🙃. Also if we needed some values, we would have to import each constant separately.
 
 It would be cool if there was a data structure that would help us with this as well. And there is such a structure — **`Enum`**.
 
@@ -154,7 +154,7 @@ It would be cool if there was a data structure that would help us with this as w
 
 `Enum` (enumeration) — a data structure that is used to enumerate a set of fixed values (set of constants).
 
-Other programming languages have a separate data type for Enum. But JS does not have this type of data (at least for now. More on that below). The regular object is usually used to imitate Enum in JS.
+Other programming languages have a separate data type for Enum. But JS does not have this type of data (at least for now, more on that below). The regular object is usually used to imitate Enum in JS.
 
 For this structure, JavaScript also has conventions among developers:
 
@@ -231,7 +231,7 @@ const GenderType = {
 
 We could keep using constants but it is much better and more correct to use structures that are better suited for this.
 
-Also if we do the task with TypeScript, we can also change a little bit the type of the user. This is *many times better* than using just strings.
+Also if we do the task with TypeScript, we can also change the type of user a little bit. This is *many times better* than using just strings.
 
 ```ts
 type User = {
@@ -261,7 +261,7 @@ Let's now imagine that a business comes to us and says that they want us to add 
 </ul>
 ```
 
-But it looks very ugly. We could replace this with a `switch` statement, or a helper function that does it itself. It is much better but we can also use special structures for this. We can use a **`Map`** data structure to make the solution more flexible and readable.
+But it looks very ugly. We could replace this with a `switch` statement, or a helper function that does it itself. This is a significant improvement, but we can also use special structures for this. We can use a **`Map`** data structure to make the solution more flexible and readable.
 
 ## Map
 
@@ -269,11 +269,11 @@ But it looks very ugly. We could replace this with a `switch` statement, or a he
 
 JS has a [`new Map` constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) out of the box. The key difference from a common object is the ability to use any data type (even an object) as a key.
 
-Usually, using the JS Map constructor is overkill. If you need the functionality that the JS Map provides you need to use it. But usually a common object is used to imitate this structure.
+Usually, using the JS Map constructor is overkill. If you need the functionality that the JS Map provides, you have to use it. But usually a common object is used to imitate this structure.
 
 There are some conventions how to configure this structure:
 
-- Map must have a name by one of these patterns — `XToY` or `xMap` (`UserToPerson` or `userMap`).The first pattern is used more often.
+- Maps must have a name by one of these patterns — `xToY` or `xMap` (`userToPerson` or `userMap`). The first pattern is used more often.
 
 <details>
   <summary>Examples</summary>
@@ -499,7 +499,7 @@ With [const assertions](https://www.typescriptlang.org/docs/handbook/release-not
 
 Moreover, `enum` is [always a reserved word](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#future_reserved_keywords) in JavaScript, which means that maybe someday we will have a construct that the language itself will offer us.
 
-Also, none of the programs that compress the JS code cannot compress TS `enum`s. The same cannot be said about the objects that pure JavaScript offers us.
+Also, programs that compress the JS code cannot compress TS `enum`s. The same cannot be said about the objects that pure JavaScript offers us.
 
 ## Enum TC39 proposals
 
@@ -515,10 +515,10 @@ Do not forget to check the [proposals](https://github.com/tc39/proposals) that m
 
 ## Conclusions
 
-Data structures are awesome! They help us to solve tasks in a neat and convenient way. With the right data structures it's easier to build algorithms or not write code at all. The data structure may already be the solution to the task.
+Data structures are awesome! They help us solve tasks in a neat and convenient way. With the right data structures, it's easier to build algorithms or not write code at all. The data structure may already be the solution to the task.
 
-A huge plus is that if you do them according to the conventions that are present in the JavaScript language, most developers will understand your code much faster than coming up with something 'new'.
+A huge plus is that if you do them according to the conventions that are present in the JavaScript language, most developers will understand your code much faster than coming up with something 'new.'
 
-Most things are already invented for us 🙂
+Most things are already invented for us! 🙂
 
 Do not forget to put the constants of the same type into `Enum`s, then map them into the format you need, and enjoy the beauty of the data structures. 🔥
