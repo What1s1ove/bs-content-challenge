@@ -361,12 +361,12 @@ Here are some more examples where using data structures helps a lot:
 
   // src/components/sign-up/components/register-form/register-form.jsx
 
-  const ganderOptions = getOptions(Object.values(GenderType), (gender) => ({
+  const genderOptions = getOptions(Object.values(GenderType), (gender) => ({
     label: genderTypeToReadable[gender],
     value: gender
   }))
 
-  <Select label="Gender:" options={ganderOptions} />
+  <Select label="Gender:" options={genderOptions} />
   ```
 
 </details>
