@@ -146,7 +146,7 @@ const FEMALE_GENDER_TYPE = 'female';
 
 Much better, but we can improve it even more.
 
-Have you noticed that we duplicate `GENDER_TYPE` in the name? It is not critical, but annoying 🙃. Also if we needed some values, we would have to import each constant separately.
+Have you noticed that we duplicate `GENDER_TYPE` in the name? It is not critical, but annoying. Also if we needed some values, we would have to import each constant separately.
 
 It would be cool if there was a data structure that would help us with this as well. And there is such a structure — **`Enum`**.
 
@@ -341,7 +341,7 @@ const genderTypeToEmoji = {
 </ul>
 ```
 
-Have you noticed how we reused all the structures we have just learned about? 🙂
+Have you noticed how we reused all the structures we have just learned about?
 
 The choice of suitable data structures saved us from writing additional code. Using data structures and their combinations is a very *powerful* tool that is very much *appreciated* among developers.
 
@@ -519,6 +519,6 @@ Data structures are awesome! They help us solve tasks in a neat and convenient w
 
 A huge plus is that if you do them according to the conventions that are present in the JavaScript language, most developers will understand your code much faster than coming up with something 'new.'
 
-Most things are already invented for us! 🙂
+Most things are already invented for us!
 
-Do not forget to put the constants of the same type into `Enum`s, then map them into the format you need, and enjoy the beauty of the data structures. 🔥
+Do not forget to put the constants of the same type into `Enum`s, then map them into the format you need, and enjoy the beauty of the data structures.
